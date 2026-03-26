@@ -23,7 +23,7 @@ def handler(event):
     # You can replace this sleep call with your own Python code
     time.sleep(seconds)  
     
-    return prompt 
+    return "hi, yjia007, you prompt is : "+prompt 
 
 # Start the Serverless function when the script is run
 if __name__ == '__main__':
