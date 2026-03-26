@@ -17,7 +17,7 @@ def handler(event):
     prompt = input.get('prompt')  
     seconds = input.get('seconds', 0)   
 
-    print(f"Received prompt: {prompt}")
+    print(f"Received prompt is hahaha: {prompt}")
     print(f"Sleeping for {seconds} seconds...")
     
     # You can replace this sleep call with your own Python code
