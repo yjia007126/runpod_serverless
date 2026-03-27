@@ -9,7 +9,6 @@ models/
 __pycache__/
 *.py[cod]
 *$py.class
-*.txt
 test*.py
 # 忽略编译文件
 *.so
