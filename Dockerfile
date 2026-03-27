@@ -8,9 +8,9 @@ COPY ComfyUI /ComfyUI
 
 # Install dependencies
 RUN pip install --no-cache-dir runpod
-# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130
-# RUN pip install -r ComfyUI/requirements.txt 
-# RUN pip install -U "comfy-script[default]"
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130
+RUN pip install -r ComfyUI/requirements.txt 
+RUN pip install -U "comfy-script[default]"
 
 # Copy your handler file
 COPY handler.py /
