@@ -59,18 +59,18 @@ def handler(event):
     # time.sleep(seconds)  
     
     # file_path = r'D:/workspace/PythonProjects/runpod_serverless/models/diffusion_models/cmd.txt'
-    file_path = r'/runpod-volume/models/diffusion_models/cmd.txt'
+    # file_path = r'/runpod-volume/models/diffusion_models/cmd.txt'
 
+    text_content = "这是要保存的文本内容。\nPython 文件操作非常简单！"
+    file_path = r'/runpod-volume/images/new.txt'
+    content = ""
     try:
-    # 使用 with 语句打开文件，它会在操作完成后自动关闭文件
-    # encoding='utf-8' 参数用于正确读取包含中文等字符的文件，防止乱码
-      with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.read()  # 读取文件的全部内容
-        # print(content)         # 打印文件内容
-    except FileNotFoundError:
-      content = "错误：找不到文件，请检查路径 '{file_path}' 是否正确。"
-    except UnicodeDecodeError:
-      content = "错误：文件编码错误，请尝试使用其他编码（如 'gbk'）。"
+      with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(text_content)
+        content = "save file success"
+    except Exception as e:    
+        # print(f"❌ 保存失败: {e}")
+        content = "save file faile:"+{e}
 
     return "hi, yjia007, you prompt is : " + content 
 
