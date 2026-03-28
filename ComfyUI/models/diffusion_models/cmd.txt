@@ -1,0 +1,1 @@
+aws s3  cp --region eu-cz-1  --endpoint-url https://s3api-eu-cz-1.runpod.io  put_diffusion_model_files_here  s3://y60h1jinxw/models/diffusion_models/
