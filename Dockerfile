@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM python:3.10-slim
 
 WORKDIR /
 
@@ -8,7 +8,8 @@ COPY ComfyUI /ComfyUI
 
 # Install dependencies
 RUN pip install --no-cache-dir runpod
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130
+# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130
+RUN pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
 RUN pip install -r ComfyUI/requirements.txt 
 RUN pip install -U "comfy-script[default]"
 
