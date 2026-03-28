@@ -15,7 +15,12 @@ RUN pip install --no-cache-dir runpod
 # --- 关键修改：升级到 PyTorch 2.3.0 ---
 # 这个版本既包含了 float8_e4m3fn 支持，又通常兼容旧驱动 (470+)
 # 注意：使用 cu118 源，不要用 nightly 源，否则可能拉到 CUDA 12 的包
-RUN pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+# RUN pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+
+# --- 关键修改：强制升级到 PyTorch 2.4.0 (CUDA 11.8) ---
+# 这是第一个正式包含 float8_e4m3fn 且具有稳定 custom_op API 的版本
+# 注意：虽然驱动 470 理论上支持 CUDA 11.x，但 PyTorch 2.4 可能会发出警告，通常仍可运行
+RUN pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
 
 
 RUN pip install -r ComfyUI/requirements.txt 
